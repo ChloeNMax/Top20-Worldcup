@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#09090b">
+<title>TOP 20 World Cup</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="./js/app.js" defer></script>
+</head>
+<body>
+<header class="topbar"><a class="brand" href="./">20<span class="dot">.</span> <span class="brand-suffix">WORLD CUP</span></a><div class="head-right"><span id="savedStatus" class="muted small"></span><div class="langs" aria-label="Language"><button id="enBtn" class="active" type="button">EN</button><span>/</span><button id="koBtn" type="button">KO</button></div></div></header>
+<main class="shell">
+<section class="hero"><div class="eyebrow" data-t="eyebrow">THE ULTIMATE HEAD-TO-HEAD</div><h1 data-t="hero">Your picks. One champion.</h1><p data-t="heroDesc">Bring your TOP 20 into a fully randomized tournament.</p></section>
+<section id="setup" class="panel setup">
+ <div class="section-no">01 / IMPORT</div><h2 data-t="importTitle">Choose your 20 contenders</h2><p class="muted" data-t="importDesc">Use your TOP 20 saved in this browser, or import a TOP 20 JSON backup.</p>
+ <div class="import-grid">
+  <div class="import-card"><div class="icon">↻</div><h3 data-t="browser">Browser saved list</h3><p id="foundMessage" class="muted" aria-live="polite"></p><button class="btn light" id="loadBrowser" type="button" data-t="loadBrowser">Load browser list</button></div>
+  <div class="import-card"><div class="icon">↥</div><h3 data-t="json">Import JSON</h3><p class="muted" data-t="jsonDesc">Choose a JSON file exported from TOP 20.</p><label class="btn outline file-btn" for="jsonFile" data-t="chooseFile">Choose JSON file</label><input type="file" accept=".json,application/json" id="jsonFile" hidden></div>
+ </div>
+ <div id="importError" class="error" role="alert" hidden></div>
+ <section id="candidateSection" hidden><div class="divide"></div><div class="candidate-heading"><div><div class="section-no">02 / READY</div><h2 id="listName"></h2></div><span id="candidateCount" class="count"></span></div><div id="candidateGrid" class="candidate-grid"></div><div class="actions"><p class="muted small" data-t="randomInfo">All entries are randomized. 8 play preliminary matches; 12 receive random byes.</p><button id="startGame" class="btn white" type="button" data-t="start">Start tournament →</button></div></section>
+</section>
+<section id="game" class="panel game" hidden><div class="game-top"><div><div class="section-no" id="stageLabel"></div><h2 id="matchHeading"></h2></div><div><span id="matchProgress" class="count"></span><button id="undoBtn" class="btn outline" type="button" data-t="undo">↶ Undo</button></div></div><div class="progress"><div id="progressFill"></div></div><p class="center muted small" data-t="pick">Tap the contender you want to advance.</p><div id="versus" class="versus"><button type="button" class="fighter" id="pickLeft"></button><div class="vs">VS</div><button type="button" class="fighter" id="pickRight"></button></div><div class="game-bottom"><button class="link danger" id="resetGame" data-t="newGame" type="button">Restart / new tournament</button></div></section>
+<section id="finished" class="panel finished" hidden><div class="section-no" data-t="championLabel">CHAMPION</div><h2 data-t="winnerTitle">And the winner is…</h2><div class="winner" id="winnerBox"></div><div class="finish-actions"><button id="againBtn" class="btn white" type="button" data-t="playAgain">Play again (reshuffle)</button><button id="newListBtn" class="btn outline" type="button" data-t="changeList">Change list</button></div><div class="history"><h3 data-t="historyTitle">Tournament results</h3><div id="historyList"></div></div></section>
+</main><footer>Made with AJ</footer><div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body></html>
